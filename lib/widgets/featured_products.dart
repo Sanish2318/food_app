@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/helpers/screen_navigation.dart';
+import 'package:food_app/screens/details.dart';
 import 'custom_text.dart';
-import 'package:food_app/screens/commons.dart';
+import 'file:///C:/Sanish/HERALD/4th%20Semester/Human%20Computer%20Interaction/Crash%20Course/Food_App/food_app/lib/helpers/style.dart';
 import 'package:food_app/models/products.dart';
 
 List<Product> productList = [
@@ -22,81 +24,86 @@ class Featured extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    Container(
-                      height: 260,
-                      width: 220,
-                      decoration: BoxDecoration(
-                          color: white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: grey[300],
-                              offset: Offset(1,1),
-                              blurRadius: 20,
-                            ),
-                          ]
-                      ),
-                      child: Column(
+                    GestureDetector(
+                      onTap: (){
+                        changeScreen(_,Details(product: productList[index]));
+                      },
+                      child: Container(
+                        height: 260,
+                        width: 220,
+                        decoration: BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: grey[300],
+                                offset: Offset(1,1),
+                                blurRadius: 20,
+                              ),
+                            ]
+                        ),
+                        child: Column(
 
-                          children: [
-                            Image.asset('asset/images/${productList[index].image}', height: 140, width: 140, fit: BoxFit.contain),
-                            SizedBox(height:10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CustomText(text: '${productList[index].name}'),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.white,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: grey[300],
-                                            offset: Offset(1,1),
-                                            blurRadius: 4,
-                                          )
-                                        ]
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: productList[index].wishList ? Icon(Icons.favorite, size: 18, color: red):
-                                      Icon(Icons.favorite_border, size: 18, color: red,),
+                            children: [
+                              Image.asset('asset/images/${productList[index].image}', height: 140, width: 140, fit: BoxFit.contain),
+                              SizedBox(height:10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: CustomText(text: '${productList[index].name}'),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20),
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: grey[300],
+                                              offset: Offset(1,1),
+                                              blurRadius: 4,
+                                            )
+                                          ]
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: productList[index].wishList ? Icon(Icons.favorite, size: 18, color: red):
+                                        Icon(Icons.favorite_border, size: 18, color: red,),
 
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left:8.0),
-                                      child: CustomText(text: '${productList[index].rating}', size: 12, color: grey),
-                                    ),
-                                    SizedBox(width: 2),
-                                    Icon(Icons.star, color: red, size: 16),
-                                    Icon(Icons.star, color: red, size: 16),
-                                    Icon(Icons.star, color: red, size: 16),
-                                    Icon(Icons.star, color: red, size: 16),
-                                    Icon(Icons.star, color: grey, size: 16),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: CustomText(text: 'Rs. ${productList[index].price}', color:black, size: 12, weight: FontWeight.bold),
-                                ),
-                              ],
-                            )
-                          ]
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left:8.0),
+                                        child: CustomText(text: '${productList[index].rating}', size: 12, color: grey),
+                                      ),
+                                      SizedBox(width: 2),
+                                      Icon(Icons.star, color: red, size: 16),
+                                      Icon(Icons.star, color: red, size: 16),
+                                      Icon(Icons.star, color: red, size: 16),
+                                      Icon(Icons.star, color: red, size: 16),
+                                      Icon(Icons.star, color: grey, size: 16),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8.0),
+                                    child: CustomText(text: 'Rs. ${productList[index].price}', color:black, size: 12, weight: FontWeight.bold),
+                                  ),
+                                ],
+                              )
+                            ]
+                        ),
                       ),
                     ),
                     SizedBox(width: 5),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/helpers/screen_navigation.dart';
 import 'package:food_app/widgets/categories.dart';
 import 'package:food_app/widgets/custom_text.dart';
 import 'package:food_app/widgets/featured_products.dart';
 import 'package:food_app/widgets/navigation_items.dart';
-import 'commons.dart';
+import '../helpers/style.dart';
+import 'bag.dart';
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -64,8 +66,10 @@ class _HomeState extends State<Home> {
                   ]
                 ),
                 child: ListTile(
+                  focusColor: Colors.red,
                   leading: Icon(Icons.search,color: red),
                   trailing: Icon(Icons.filter_list,color: red),
+
                   title: TextField(
                     decoration: InputDecoration(
                       hintText: 'Find food or Restaurant',
@@ -210,9 +214,17 @@ class _HomeState extends State<Home> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              NavigationItem(image: 'home.png',name: 'Home'),
+              NavigationItem(
+                image: 'home.png',
+                name: 'Home',
+                onTap: (){},),
               NavigationItem(image: 'target.png',name: 'Nearby'),
-              NavigationItem(image: 'cart.png',name: 'Cart'),
+              NavigationItem(
+                  image: 'bag.png',
+                  name: 'Bag',
+                  onTap: (){
+                    changeScreen(context, ShoppingBag());
+                  },),
               NavigationItem(image: 'me.png',name: 'Me'),
             ]
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/models/category.dart';
-import 'package:food_app/screens/commons.dart';
+import 'file:///C:/Sanish/HERALD/4th%20Semester/Human%20Computer%20Interaction/Crash%20Course/Food_App/food_app/lib/helpers/style.dart';
 import 'custom_text.dart';
 
 List <Category> categoriesList = [
